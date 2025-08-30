@@ -1,15 +1,3 @@
-
-وده طبيعي جدًا لأنك بتستخدم Firebase + Kinde SDK → اللي محتاج **Node.js runtime**، بينما **Edge Functions بتشتغل في بيئة V8 runtime (مش Node.js)** وبالتالي مش بتسمح باستخدام `fs`, `crypto`, `firebase-admin` ... الخ.  
-
----
-
-## ✅ الحل النهائي
-اللي محتاج تعمله هو **تعطيل Edge Functions نهائيًا** عشان Netlify ما يحاولش يولدها.  
-
-1. في جذر المشروع، افتح أو أنشئ ملف `netlify.toml`.  
-2. حط الإعدادات دي:
-
-```toml
 [build]
   command = "npm run build"
   publish = ".next"
@@ -21,7 +9,6 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# ✨ ده أهم جزء → بيوقف الـ Edge Functions
 [experimental]
   edge_functions = false
 
