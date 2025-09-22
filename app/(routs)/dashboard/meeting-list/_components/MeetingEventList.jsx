@@ -32,15 +32,13 @@ function MeetingEventList({search , setSearch}) {
     const events = [];
     querySnapshot.forEach((doc) => {
         events.push({ id: doc.id, ...doc.data() });
-        console.log(doc.id, " => ", doc.data());
     });
-    setEventList(events); // تحديث القائمة بالكامل بعد الحصول على الأحداث الجديدة
+    setEventList(events); 
 };
 
 const onDeleteEvent = async (event) => {
     await deleteDoc(doc(db, "Event", event.id)).then(() => {
         toast("Meeting Has Been Deleted");
-        // تحديث القائمة بعد الحذف
         setEventList((prevEventList) => prevEventList.filter((e) => e.id !== event.id));
     });
 };
@@ -53,7 +51,6 @@ const onDeleteEvent = async (event) => {
     if (docSnap.exists()) {
         const data = docSnap.data();
         setMeetingList(data);
-        console.log("Meeting Info:", data);
     } else {
         console.log("No meeting found for this user.");
     }

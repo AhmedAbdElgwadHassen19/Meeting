@@ -22,7 +22,6 @@ function Create_MeetingForm() {
         email: user.email,
         userName: user.given_name+" "+ user.family_name
         }).then((resp=>{
-            console.log('Document Saved');
             router.push("/dashboard")
         }))
     }

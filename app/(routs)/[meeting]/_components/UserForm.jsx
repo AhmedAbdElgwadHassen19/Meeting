@@ -3,7 +3,6 @@ import { Input } from '@/components/ui/input'
 function UserForm({setName , setEmail , setNote}) {
     
   return (
-    // التغيير هنا: استخدمنا w-full بشكل أساسي، ثم md:w-[50%] للشاشات الأكبر
     <div className="flex flex-col p-4 md:p-8 gap-3 w-full md:w-[50%]">
         <div>
             <h2 className="font-semibold mb-1">Name *</h2>

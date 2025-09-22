@@ -1,8 +1,7 @@
 "use client"
 import React, { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
+import { RegisterLink, useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
 import { useRouter } from 'next/navigation'
 
 
@@ -20,8 +19,8 @@ export default function Hero() {
         <h1  className='text-emerald-600 text-[40px] md:text-[50px]'>Make scheduling effortless</h1>
         <p className='text-gray-500 text-[20px] mb-5'>out smart scheduling tool helps the perfect in seconds</p>
         <div>
-            <Button className='bg-green-600 mr-3 cursor-pointer'>Sing Up with Google</Button>
-            <Button className='bg-amber-500 cursor-pointer'>Sing Up with Facebook</Button>
+            <RegisterLink><Button className='bg-green-600 mr-3 cursor-pointer'>Sing Up with Google</Button></RegisterLink>
+            <RegisterLink><Button className='bg-amber-500 cursor-pointer'>Sing Up with Facebook</Button></RegisterLink>
         </div>
         
       </div>

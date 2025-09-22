@@ -28,7 +28,6 @@ export default function PreviewMeeting({formValue}) {
       return `${String(formattedHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')} ${period}`;
     });
     setTimeSlots(slots);
-    console.log(slots);
     }
   return (
     <div className='p-7 shadow-md m-5'>

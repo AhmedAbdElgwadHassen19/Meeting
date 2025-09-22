@@ -21,11 +21,9 @@ const SharedEventMeeting = ({params}) => {
     const q = query(collection(db, "Meeting"), where("meeting", "==", params.meeting));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        console.log("Meeting Data:", doc.data());
         setMeetingInfo(doc.data());
   });
 
-    // جلب بيانات الحدث
     const eventRef = doc(db, "Event", params.eventId);
     const eventSnap = await getDoc(eventRef);
     setEventInfo(eventSnap.data());

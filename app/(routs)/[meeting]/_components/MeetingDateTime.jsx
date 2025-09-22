@@ -1,7 +1,5 @@
 "use client"
 import Image from 'next/image'
-import { Calendar, Clock, MapPin, TimerIcon } from 'lucide-react'
-import Link from 'next/link'
 import { useState , useEffect } from 'react'
 import { format } from 'date-fns';
 import DateTimeComponent from './DateTimeComponent'
@@ -40,7 +38,6 @@ const MeetingDateTime = ({eventInfo, meetingInfo}) => {
       return `${String(formattedHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')} ${period}`;
     });
     setTimeSlots(slots);
-    console.log(slots);
   }
   const handleDate = (date) =>{
     setDate(date);
@@ -69,31 +66,24 @@ const MeetingDateTime = ({eventInfo, meetingInfo}) => {
     })
   }
  return (
-    // التغيير هنا: قللت الـ margin والـ padding للشاشات الصغيرة
     <div className='p-4 md:p-7 shadow-lg m-2 md:m-5 border-t-4 border-t-cyan-800 md:mx-10 mt-10 md:mt-20'>
         <Image width={100} height={100} src="/logo.png" alt="logo" className='rounded-full object-cover'/>
 
-            {/* التغيير هنا: استخدمنا grid-cols-1 كأساس، ثم md:grid-cols-3 للشاشات الأكبر */}
             <div className="grid grid-cols-1 md:grid-cols-3 mt-5">
-                {/* قسم المعلومات */}
-                {/* التغيير هنا: أزلنا الحد الأيمن على الشاشات الصغيرة وأضفنا حداً سفلياً */}
                 <div className="p-4 border-b md:border-b-0 md:border-r border-[#bcbcbc]">
                     <div>
                         <h2 className='font-bold text-2xl md:text-[28px]'>{meetingInfo?.meeting}</h2>
                         <h2>{eventInfo?.meetingName || "Enter Meeting Name"}</h2>
                     </div>
 
-                    {/* ... (بقية معلومات الاجتماع بدون تغيير) ... */}
                 </div>
 
-                {/* قسم اختيار الوقت أو إدخال البيانات */}
                 <div className="md:col-span-2 w-full">
                     { step==1 ? <DateTimeComponent date={date} timeSlots={timeSlots} handleDate={handleDate}  
                     enableTimeSlots={enableTimeSlots} setSelectedTime={setSelectedTime} selectedTime={selectedTime}/> : <UserForm setName={setName} setEmail={setEmail} setNote={setNote}/> }
                 </div>
             </div>
 
-            {/* قسم الأزرار */}
             <div className="flex justify-end gap-3 mt-5">
               {step === 2 && <Button onClick={() => setStep(1)} variant="outline">Back</Button>}
 

@@ -71,6 +71,7 @@ function SidNavbar() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-64 bg-[#e6f7f6] p-0">
+            <h2 className="sr-only">Sidebar navigation</h2>
             <SidebarContent />
           </SheetContent>
         </Sheet>

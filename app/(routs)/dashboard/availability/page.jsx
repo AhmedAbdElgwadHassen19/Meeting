@@ -30,7 +30,6 @@ function availability() {
       ...dayAvailable,
       [day]:value
     })
-    console.log(dayAvailable);
   }
 
   const HandleClick = async()=>{
@@ -45,7 +44,6 @@ function availability() {
       console.error("Error updating document: ", error);
       toast.error("Error updating document: " + error.message);
 });
-    console.log(dayAvailable , starttime , endtime);
   }
 
   useEffect(()=>{
